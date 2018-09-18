@@ -1,0 +1,15 @@
+http://search.mnet.com:80/search/index.asp?q=Punch
+
+통신방식	http
+아이피	search.mnet.com(돈내고 등록 - 도메인)
+포트	80
+세부주소	/search/index.asp
+파라미터	q=Punch
+
+http://search.mnet.com/search/index.asp?q=iu
+
+통신방식	http
+아이피	search.mnet.com(돈내고 등록 - 도메인)
+포트	80
+세부주소	/search/index.asp
+파라미터	q=iu
