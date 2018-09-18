@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 오타를 잡아주는 스키마 -->
+<web-app version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+   http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+	<!-- 서블릿 주소 등록\
+		test라는 별칭으로 study.servlet.TestServlet와 /test.itbank주소를 연결
+		http://localhost:8080/study/test.itbank
+		 -->
+
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>study.servlet.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test.itbank</url-pattern>
+	</servlet-mapping>
+</web-app>
