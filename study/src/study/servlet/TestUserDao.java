@@ -10,7 +10,7 @@ import java.sql.ResultSet;
  */
 public class TestUserDao {
 	private String driverClassName = "oracle.jdbc.OracleDriver";
-	private String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+	private String url = "jdbc:oracle:thin:@127.0.0.1:1523:xe";
 	private String username = "sw5";
 	private String password = "sw5";
 	
@@ -44,7 +44,6 @@ public class TestUserDao {
 		ps.setString(2, tdto.getPw());
 		ps.setString(3, tdto.getNick());
 		ps.execute();
-		
 		con.close();
 //		return;
 	}

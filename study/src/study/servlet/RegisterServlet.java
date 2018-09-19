@@ -14,6 +14,7 @@ public class RegisterServlet extends HttpServlet{
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 //			[1] 준비 - id, pw, nick
+			req.setCharacterEncoding("UTF-8");
 			TestUserDto tdto = new TestUserDto();
 			tdto.setId(req.getParameter("id"));
 			tdto.setPw(req.getParameter("pw"));
@@ -22,9 +23,8 @@ public class RegisterServlet extends HttpServlet{
 //			[2] 처리
 			TestUserDao tdao = new TestUserDao();
 			tdao.register(tdto);
-			
 //			[3] 출력
-			resp.setContentType("text/plain; charset=EUC-KR");
+			resp.setContentType("text/plain; charset=UTF-8");
 			resp.getWriter().println("회원 가입이 완료되었습니다");
 //			resp.getWriter().close();
 		}catch(Exception e) {

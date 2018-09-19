@@ -31,6 +31,8 @@
 	%>
 	<img src="<%=root%>/image/bg.jpg" width="80%">
 	<br>
+	<img src="<%=request.getContextPath()%>/image/bg.jpg" width="80%">
+	<br>
 </body>
 </html>
 
