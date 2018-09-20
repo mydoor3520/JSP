@@ -23,6 +23,9 @@
 			<td><%=gdto.getJob() %></td>
 			<td><%=gdto.getLev() %></td>
 			<td><%=gdto.getExp() %></td>
+			<td>
+						<a href="hunt.it?no=<%=gdto.getNo()%>">사냥하기</a>
+					</td>
 		</tr>
 		<%} %>
 	</table>

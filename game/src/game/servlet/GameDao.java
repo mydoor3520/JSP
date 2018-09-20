@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GameDao {
 	private String driverClassName = "oracle.jdbc.OracleDriver";
-	private String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+	private String url = "jdbc:oracle:thin:@127.0.0.1:1523:xe";
 	private String username = "sw5";
 	private String password = "sw5";
 	
@@ -38,7 +38,7 @@ public class GameDao {
 	public List<GameDto> list() throws Exception{
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection con = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:xe", "sw5", "sw5");
+				"jdbc:oracle:thin:@localhost:1523:xe", "sw5", "sw5");
 		
 		String sql = "select * from game";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -56,6 +56,18 @@ public class GameDao {
 		}
 		con.close();
 		return list;
+	}
+	
+	//사냥기능
+	public void hunt(int no) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "update game set exp=exp+100 where no=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		ps.execute();
+		
+		con.close();
 	}
 
 }
