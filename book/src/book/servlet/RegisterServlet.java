@@ -14,30 +14,30 @@ import book.bean.BookDto;
 @WebServlet(urlPatterns="/register.bk")
 public class RegisterServlet extends HttpServlet{
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-//			[1] 아이디, 직업 등록
-			req.setCharacterEncoding("UTF-8");
-			BookDto bdto = 
-					new BookDto(req.getParameter("name"),req.getParameter("writer"),
-							req.getParameter("publisher"),Integer.parseInt(req.getParameter("price")),
-							req.getParameter("status"));
+//			[1] 준비
+			request.setCharacterEncoding("utf-8");
+			
+			BookDto bdto = new BookDto();
+			bdto.setName(request.getParameter("name"));
+			bdto.setWriter(request.getParameter("writer"));
+			bdto.setPublisher(request.getParameter("publisher"));
+			bdto.setPrice(Integer.parseInt(request.getParameter("price")));
+			bdto.setStatus(request.getParameter("status"));
 			
 //			[2] 처리
 			BookDao bdao = new BookDao();
 			bdao.register(bdto);
 			
-//			[3] 결과
-			resp.sendRedirect(req.getContextPath()+"/tag/list.jsp");
-			
-//			
+//			[3] 출력
+			response.sendRedirect("list.jsp");
 		}catch(Exception e) {
-			resp.sendError(500, "내부 에러~!");
+			response.sendError(500);
 			e.printStackTrace();
 		}
 	}
 }
-
 
 
 

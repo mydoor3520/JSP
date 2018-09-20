@@ -3,6 +3,7 @@
 	<name>book</name>
 	<comment></comment>
 	<projects>
+		<project>ojdbc6</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
