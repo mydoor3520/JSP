@@ -17,12 +17,14 @@ public class LoginServlet extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 //			[1] 준비		email, pw, saveId
+			MemberDao mdao = new MemberDao();
+		
 			String email = request.getParameter("email");
 			String pw = request.getParameter("pw");
+			String grade = mdao.getGrade(email, pw);
 			String saveId = request.getParameter("saveId");//null or on
-			
+		
 //			[2] 처리
-			MemberDao mdao = new MemberDao();
 			boolean login = mdao.login(email, pw);
 			
 //			[3] 출력
@@ -30,7 +32,7 @@ public class LoginServlet extends HttpServlet{
 //				세션(session)에 로그인 성공의 의미로 {login=이메일} 형태의 데이터를 저장(setAttribute)
 				HttpSession session = request.getSession();
 				session.setAttribute("login", email);
-				
+				session.setAttribute("grade", grade);
 				response.sendRedirect(request.getContextPath());
 			}else {
 				response.sendRedirect("login_fail.jsp");

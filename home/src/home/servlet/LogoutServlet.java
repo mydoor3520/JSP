@@ -16,7 +16,7 @@ public class LogoutServlet extends HttpServlet{
 //		[1] 세션에서 login, power를 삭제
 		HttpSession session = request.getSession();
 		session.removeAttribute("login");
-		session.removeAttribute("power");
+		session.removeAttribute("grade");
 //		session.invalidate();//전체삭제
 		
 //		[2] 홈으로 리다이렉트

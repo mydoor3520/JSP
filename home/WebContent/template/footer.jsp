@@ -8,7 +8,7 @@
 					<td>
 						세션ID : <%=session.getId()%>, 
 						login = <%=session.getAttribute("login")%>,
-						power = <%=session.getAttribute("power")%>
+						grade = <%=session.getAttribute("grade")%>
 					</td>
 				</tr>
 			</tbody>

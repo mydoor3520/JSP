@@ -20,13 +20,16 @@
 				<tr height="50">
 					<td align="left">
 						<a href="<%=request.getContextPath()%>">홈으로</a>
+						<%if(null==session.getAttribute("grade")){%>
 						<a href="<%=request.getContextPath()%>/member/register.jsp">회원가입</a>
-						<a href="<%=request.getContextPath()%>/member/login.jsp">로그인</a>
+						 <a href="<%=request.getContextPath()%>/member/login.jsp">로그인</a>
+						<%} else{%>
 						<a href="<%=request.getContextPath()%>/member/logout.it">로그아웃</a>
 						내정보
 						정보수정
 						회원탈퇴
-						관리자모드
+						<%} %>
+						<%if(session.getAttribute("grade").equals("관리자")){ %>관리자모드<%} %>
 						자유게시판
 						<a href="<%=request.getContextPath()%>/event/home.jsp">이벤트</a>
 					</td>

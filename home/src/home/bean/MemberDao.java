@@ -47,7 +47,20 @@ public class MemberDao {
 		ResultSet rs = ps.executeQuery();
 		
 		boolean result = rs.next();//데이터 유무 추출
+		con.close();
+		return result;
+	}
+	
+	public String getGrade(String email, String pw) throws Exception{
+		Connection con = getConnection();
 		
+		String sql = "select * from member where email=? and pw=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, email);
+		ps.setString(2, pw);
+		String result = "";
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) result = rs.getString("grade");
 		con.close();
 		return result;
 	}

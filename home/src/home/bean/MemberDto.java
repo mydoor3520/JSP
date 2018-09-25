@@ -13,7 +13,7 @@ public class MemberDto {
 	private String addr1;		//입력
 	private String addr2;		//입력
 	private String reg;
-	private String power;
+	private String grade;
 	public MemberDto() {
 		super();
 	}
@@ -89,16 +89,16 @@ public class MemberDto {
 	public void setReg(String reg) {
 		this.reg = reg;
 	}
-	public String getPower() {
-		return power;
+	public String getGrade() {
+		return grade;
 	}
-	public void setPower(String power) {
-		this.power = power;
+	public void setPower(String grade) {
+		this.grade = grade;
 	}
 	@Override
 	public String toString() {
 		return "MemberDto [email=" + email + ", pw=" + pw + ", nick=" + nick + ", birth=" + birth + ", phone=" + phone
 				+ ", gender=" + gender + ", interest=" + interest + ", point=" + point + ", post=" + post + ", addr1="
-				+ addr1 + ", addr2=" + addr2 + ", reg=" + reg + ", power=" + power + "]";
+				+ addr1 + ", addr2=" + addr2 + ", reg=" + reg + ", grade=" + grade + "]";
 	}
 }
